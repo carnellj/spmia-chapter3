@@ -10,7 +10,6 @@ We are going to build and start all of our machines from the command-line.  So o
 To build the code examples for Chapter 3 as a docker image, use the command-line window opened with Kitematic and then change to the directory where you have downloaded the chapter 3 source code.
 
 Run the following maven commands in the following directories:
-
     - confsvr  
     - licensing-service
 
