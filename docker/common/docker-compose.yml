@@ -1,5 +1,5 @@
 configserver:
-    image: tmx-confsvr:chapter3
+    image: johncarnell/tmx-confsvr:chapter3
     ports:
        - "8888:8888"
 database:
@@ -11,7 +11,7 @@ database:
       - POSTGRES_PASSWORD=p0stgr@s
       - POSTGRES_DB=eagle_eye_local
 licensingservice:
-    image: ch3-thoughtmechanix/licensing-service
+    image: johncarnell/tmx-licensing-service:chapter3
     ports:
       - "8080:8080"
     links:
