@@ -25,11 +25,11 @@ If everything builds successfully for each directory you should see a message in
 
 Now we are going to use docker-compose to start the actual image.  Since our first attempt at the licensing service is completely
 self contained and does not even talk to a database, the code only one docker image to start.  To start the docker image,
-change to the docker-compose directory (using the command window opened from Kitematic) in your chapter 2 source code.  Issue the following docker-compose command:
+change to the docker directory (using the command window opened from Kitematic) in your chapter 3 source code.  Issue the following docker-compose command:
 
    docker-compose -f common/docker-compose.yml up
 
-This command will start up a Spring Cloud Configuration Instance, a licensing-service instance and a postgres-database.  Note: the postgres database will be populated with data contained in the licensing-services/resources/schema.sql file.
+This command will start up a Spring Cloud Configuration Instance, a licensing-service instance and a postgres-database.  Note: the postgres database will be populated with data contained in the licensing-service/src/main/resources/schema.sql file.
 
 If everything starts correctly you should see standard output from all of the different services fly by. At this point the service is running in docker container in a Virtual VM (e.g. virtual box).
 
@@ -48,8 +48,11 @@ http://192.168.99.100:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/
 You should get back the following JSON data.
 
 {
-    "id": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "organizationId": "TestOrg",
-    "productName": "Teleco",
-    "licenseType": "Seat"
+    "licenseId": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+    "organizationId": "e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+    "productName": "customer-crm-co",
+    "licenseType": "user",
+    "licenseMax": 100,
+    "licenseAllocated": 5,
+    "comment": "I AM IN THE DEFAULT"
 }
