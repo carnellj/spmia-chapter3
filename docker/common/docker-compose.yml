@@ -1,8 +1,10 @@
-configserver:
+version: '2'
+services:
+  configserver:
     image: johncarnell/tmx-confsvr:chapter3
     ports:
        - "8888:8888"
-database:
+  database:
     image: postgres
     ports:
       - "5432:5432"
@@ -10,13 +12,12 @@ database:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=p0stgr@s
       - POSTGRES_DB=eagle_eye_local
-licensingservice:
+  licensingservice:
     image: johncarnell/tmx-licensing-service:chapter3
     ports:
       - "8080:8080"
-    links:
-      - "database:database"
-      - "configserver:configserver"
     environment:
       PROFILE: "default"
       CONFIGSERVER_URI: "http://configserver:8888"
+      CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "5432"
