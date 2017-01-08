@@ -20,5 +20,5 @@ env:
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - mvn clean package docker:build
-- docker push tmx-licensing-service:chapter3
+- docker push johncarnell/tmx-licensing-service:chapter3
 - docker push johncarnell/tmx-confsvr:chapter3
