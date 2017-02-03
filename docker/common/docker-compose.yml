@@ -4,14 +4,16 @@ services:
     image: johncarnell/tmx-confsvr:chapter3
     ports:
        - "8888:8888"
+    environment:
+      ENCRYPT_KEY:       "IMSYMMETRIC"   
   database:
     image: postgres
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=p0stgr@s
-      - POSTGRES_DB=eagle_eye_local
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "p0stgr@s"
+      POSTGRES_DB:       "eagle_eye_local"
   licensingservice:
     image: johncarnell/tmx-licensing-service:chapter3
     ports:

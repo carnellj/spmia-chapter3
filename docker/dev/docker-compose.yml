@@ -5,9 +5,9 @@ services:
       file: ../common/docker-compose.yml
       service: database
     environment:
-      - POSTGRES_USER=postgres_dev
-      - POSTGRES_PASSWORD=p0stgr@s_dev
-      - POSTGRES_DB=eagle_eye_dev
+      POSTGRES_USER: "postgres_dev"
+      POSTGRES_PASSWORD: "p0stgr@s_dev"
+      POSTGRES_DB:       "eagle_eye_dev"
   configserver:
     extends:
       file: ../common/docker-compose.yml
