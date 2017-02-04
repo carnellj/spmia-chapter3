@@ -16,6 +16,7 @@ spring:
   cloud:
     config:
       server:
+        encrypt.enabled: false
         git:
           uri: https://github.com/carnellj/config-repo/
           searchPaths: licensingservice,organizationservice

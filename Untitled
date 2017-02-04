@@ -1,0 +1,7 @@
+{:messages [
+    {:body
+       "{\"Service\":\"AWS Auto Scaling\",\"LifecycleActionToken\":\"aa24376a-281f-44dd-a68a-f7b8b01acc3e\",\"AccountId\":\"490606849374\",\"AutoScalingGroupName\":\"506ae55f-ef77-4f4c-9c51-0c5c0d4100fd-876f7fc9-df2c-4e20-9124-25006edd38a1-ASG-v498\",\"LifecycleHookName\":\"506ae55f-ef77-4f4c-9c51-0c5c0d4100fd-876f7fc9-df2c-4e20-9124-25006edd38a1-ASG-v498-ASGHook-2\",\"LifecycleTransition\":\"autoscaling:EC2_INSTANCE_LAUNCHING\",\"RequestId\":\"de06cb5a-598e-467c-84ce-89b7b8a4d063\",\"EC2InstanceId\":\"i-00f61458a315e097e\",\"Time\":\"2017-02-03T20:12:59.561Z\"}"
+      }
+       {:body
+          "{\"Service\":\"AWS Auto Scaling\",\"LifecycleActionToken\":\"a50e0409-ddf5-4492-be40-fff869d36efd\",\"AccountId\":\"490606849374\",\"AutoScalingGroupName\":\"506ae55f-ef77-4f4c-9c51-0c5c0d4100fd-876f7fc9-df2c-4e20-9124-25006edd38a1-ASG-v498\",\"LifecycleHookName\":\"506ae55f-ef77-4f4c-9c51-0c5c0d4100fd-876f7fc9-df2c-4e20-9124-25006edd38a1-ASG-v498-ASGHook-2\",\"LifecycleTransition\":\"autoscaling:EC2_INSTANCE_LAUNCHING\",\"RequestId\":\"8c8616ec-93f7-495a-9f22-0d0f634aafda\",\"EC2InstanceId\":\"i-07f74caf768ac4c4f\",\"Time\":\"2017-02-03T20:12:59.168Z\"}"
+    ]}
