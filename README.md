@@ -1,58 +1,30 @@
-#Introduction
-All of the code examples in this book will include maven files for building docker images of the services being built.  As we progress through the book we will be leveraging more and more infrastructure as we build our services out.   These additional pieces of infrastructure will also be docker containers.  
+# Introduction
+Welcome to Spring Microservices in Action, Chapter 3.  Chapter 3 introduces the Spring Cloud Config service and how you can use it managed the configuration of your microservices.  By the time you are done reading this chapter you will have built and/or deployed:
 
-#Software Needed
-All of the codes instances have been built and compiled on a Mac running OS X.  We leverage Kitematic to build docker images.  Kitematics will install docker, docker-machine and docker-compose.  Docker is the core-runtime for docker containers.  Docker-machine providers a virtual-machine instance that the docker containers will run, while docker-compose providers orchestration capabilities for  starting and stopping groups of docker-machines.  Download [Kitematic](https://kitematic.com/) and follow the instructions for installing the software.
+1.  A Spring Cloud Config server that is deployed as Docker container and can manage a services configuration information using a file system or GitHub-based repository.
+2.  A organization service that will manage organization data used within EagleEye.
+3.  A licensing service that will manage licensing data used within EagleEye.
+4.  A Postgres SQL database used to hold the data for these two services.
 
-We are going to build and start all of our machines from the command-line.  So once you start kitematic you should can open a command line window by pressing the command-line CLI button on left hand of the screen.
+# Software needed
+1.	Apache Maven (http://apache.maven.org). I used version 3.3.9 of the Maven. I chose Maven because, while other build tools like Gradle are extremely popular, Maven is still the pre-dominate build tool in use in the Java ecosystem. All of the code examples in this book have been compiled with Java version 1.8.
+2.	Docker (http://docker.com). I built the code examples in this book using Docker V1.12 and above. I am taking advantage of the embedded DNS server in Docker that came out in release V1.11. New Docker releases are constantly coming out so it's release version you are using may change on a regular basis.
+3.	Git Client (http://git-scm.com). All of the source code for this book is stored in a GitHub repository. For the book, I used version 2.8.4 of the git client.
 
-#Building the Docker Images for Chapter 3
-To build the code examples for Chapter 3 as a docker image, use the command-line window opened with Kitematic and then change to the directory where you have downloaded the chapter 3 source code.
+# Building the Docker Images for Chapter 3
+To build the code examples for Chapter 3 as a docker image, open a command-line window change to the directory where you have downloaded the chapter 1 source code.
 
-Run the following maven commands in the following directories:
-    - confsvr  
-    - licensing-service
+Run the following maven command.  This command will execute the [Spotify docker plugin](https://github.com/spotify/docker-maven-plugin) defined in the pom.xml file.  
 
-This command will execute the [Spotify docker plugin](https://github.com/spotify/docker-maven-plugin) defined in the pom.xml file.  
+   **mvn clean package docker:build**
 
-   mvn clean package docker:build
+This is the first chapter we will have multiple Spring projects that need to be be built and compiled.  Running the above command at the root of the project directory will build all of the projects.  If everything builds successfully you should see a message indicating that the build was successful.
 
-This will build the docker image for the licensing service in Chapter 3.  Note:  The docker cli does not see all of the path variables you might have in your normal path, so you might have to set your path to point to your maven bin directory.
+# Running the services in Chapter 3
 
-If everything builds successfully for each directory you should see a message indicating that the build was successful for that project/
+Now we are going to use docker-compose to start the actual image.  To start the docker image,
+change to the docker-compose directory in your chapter 3 source code.  Issue the following docker-compose command:
 
-#Running the Application for Chapter 3
+   **docker-compose -f docker-compose/common/docker-compose.yml up**
 
-Now we are going to use docker-compose to start the actual image.  Since our first attempt at the licensing service is completely
-self contained and does not even talk to a database, the code only one docker image to start.  To start the docker image,
-change to the docker directory (using the command window opened from Kitematic) in your chapter 3 source code.  Issue the following docker-compose command:
-
-   docker-compose -f common/docker-compose.yml up
-
-This command will start up a Spring Cloud Configuration Instance, a licensing-service instance and a postgres-database.  Note: the postgres database will be populated with data contained in the licensing-service/src/main/resources/schema.sql file.
-
-If everything starts correctly you should see standard output from all of the different services fly by. At this point the service is running in docker container in a Virtual VM (e.g. virtual box).
-
-#Testing Chapter 3 Code
-
-To hit the endpoint we need to know the virtual machine IP that was assigned to the server by Kitematic.  To find this out the IP address of the machine you can issue the following command to docker-machine (again using a command window started by Kitematic).
-
-docker-machine ip
-
-This will return the IP of the machine in question.
-
-At this point you can use post man or curl to hit the endpoint in question.  For instance if I were to issue the following curl command to the licensing service, I should get data back:
-
-http://192.168.99.100:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a
-
-You should get back the following JSON data.
-
-{
-    "licenseId": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "organizationId": "e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
-    "productName": "customer-crm-co",
-    "licenseType": "user",
-    "licenseMax": 100,
-    "licenseAllocated": 5,
-    "comment": "I AM IN THE DEFAULT"
-}
+If everything starts correctly you should see a bunch of Spring Boot information fly by on standard out.  At this point all of the services needed for the chapter code examples will be running.
