@@ -12,7 +12,7 @@ Welcome to Spring Microservices in Action, Chapter 3.  Chapter 3 introduces the 
 3.	Git Client (http://git-scm.com). All of the source code for this book is stored in a GitHub repository. For the book, I used version 2.8.4 of the git client.
 
 # Building the Docker Images for Chapter 3
-To build the code examples for Chapter 3 as a docker image, open a command-line window change to the directory where you have downloaded the chapter 1 source code.
+To build the code examples for Chapter 3 as a docker image, open a command-line window change to the directory where you have downloaded the chapter 3 source code.
 
 Run the following maven command.  This command will execute the [Spotify docker plugin](https://github.com/spotify/docker-maven-plugin) defined in the pom.xml file.  
 
