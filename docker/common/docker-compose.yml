@@ -7,7 +7,7 @@ services:
     environment:
       ENCRYPT_KEY:       "IMSYMMETRIC"
   database:
-    image: postgres
+    image: postgres:9.5
     ports:
       - "5432:5432"
     environment:
@@ -23,4 +23,4 @@ services:
       CONFIGSERVER_URI: "http://configserver:8888"
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
-      ENCRYPT_KEY:       "IMSYMMETRIC" 
+      ENCRYPT_KEY:       "IMSYMMETRIC"
