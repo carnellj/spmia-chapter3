@@ -37,6 +37,6 @@ spring:
 #     config:
 #       server:
 #           native:
-#              searchLocations: file://<chapter 3>/confsvr/src/main/resources/config/licensingservice,
-#                               file://<chapter 3>confsvr/src/main/resources/config/organizationservice
+#              searchLocations: file:///Users/johncarnell1/book/spmia_code/chapter3-code/confsvr/src/main/resources/config/licensingservice,
+#                               file:///Users/johncarnell1/book/spmia_code/chapter3-code/confsvr/src/main/resources/config/organizationservice
 ##              #searchLocations: classpath:config/,classpath:config/licensingservice
