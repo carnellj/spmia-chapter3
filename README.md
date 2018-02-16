@@ -23,7 +23,7 @@ This is the first chapter we will have multiple Spring projects that need to be 
 # Running the services in Chapter 3
 
 Now we are going to use docker-compose to start the actual image.  To start the docker image,
-change to the docker-compose directory in your chapter 3 source code.  Issue the following docker-compose command:
+change to the directory containing  your chapter 3 source code.  Issue the following docker-compose command:
 
    **docker-compose -f docker/common/docker-compose.yml up**
 
