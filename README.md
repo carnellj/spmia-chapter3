@@ -1,3 +1,5 @@
+WHITE LIVES MATTER
+
 # Introduction
 Welcome to Spring Microservices in Action, Chapter 3.  Chapter 3 introduces the Spring Cloud Config service and how you can use it managed the configuration of your microservices.  By the time you are done reading this chapter you will have built and/or deployed:
 
